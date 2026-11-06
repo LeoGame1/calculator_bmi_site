@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f75">
+  <title>Калькулятор ИМТ</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="brand">
+      <div class="brand-icon" aria-hidden="true">✚</div>
+      <div>
+        <p class="eyebrow">Медицинский помощник</p>
+        <h1>Калькулятор ИМТ</h1>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="intro-label">Индекс массы тела</p>
+      <h2>Проверьте соотношение роста и веса</h2>
+      <p>Введите свои показатели — калькулятор рассчитает ИМТ и покажет соответствующую категорию.</p>
+    </section>
+
+    <section class="calculator card" aria-labelledby="calculator-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="calculator-title">Ваши показатели</h2>
+          <p>Все значения указывайте в привычных единицах.</p>
+        </div>
+        <span class="step">01 / 02</span>
+      </div>
+
+      <form id="bmi-form" novalidate>
+        <div class="fields">
+          <div class="field">
+            <label for="height">Рост</label>
+            <div class="input-box">
+              <input id="height" name="height" type="text" inputmode="decimal"
+                     autocomplete="off" placeholder="Например, 175" aria-describedby="height-hint">
+              <span>см</span>
+            </div>
+            <small id="height-hint">От 50 до 250 см</small>
+          </div>
+
+          <div class="field">
+            <label for="weight">Масса тела</label>
+            <div class="input-box">
+              <input id="weight" name="weight" type="text" inputmode="decimal"
+                     autocomplete="off" placeholder="Например, 70" aria-describedby="weight-hint">
+              <span>кг</span>
+            </div>
+            <small id="weight-hint">От 10 до 500 кг</small>
+          </div>
+        </div>
+
+        <p class="error" id="error-message" role="alert" aria-live="polite"></p>
+
+        <div class="actions">
+          <button class="button button-primary" type="submit">Рассчитать ИМТ <span aria-hidden="true">→</span></button>
+          <button class="button button-secondary" type="reset">Очистить</button>
+        </div>
+      </form>
+
+      <section class="result hidden" id="result" aria-live="polite">
+        <div class="result-heading">
+          <div>
+            <p class="result-caption">Ваш результат</p>
+            <p class="result-number" id="bmi-value">—</p>
+            <p class="result-unit">кг/м²</p>
+          </div>
+          <div class="category-badge" id="bmi-category">Категория</div>
+        </div>
+        <div class="scale" aria-label="Шкала категорий ИМТ">
+          <span class="scale-1"></span><span class="scale-2"></span>
+          <span class="scale-3"></span><span class="scale-4"></span>
+          <span class="scale-5"></span><span class="scale-6"></span>
+          <span class="scale-7"></span>
+        </div>
+        <p class="result-description" id="result-description"></p>
+      </section>
+    </section>
+
+    <section class="card info-card">
+      <div class="section-heading">
+        <div>
+          <h2>Как рассчитывается ИМТ</h2>
+          <p>Используется стандартная математическая формула.</p>
+        </div>
+      </div>
+      <div class="formula">
+        <span>ИМТ =</span>
+        <span class="fraction"><b>m</b><i>h²</i></span>
+      </div>
+      <div class="formula-legend">
+        <p><b>m</b> — масса тела в килограммах</p>
+        <p><b>h</b> — рост в метрах</p>
+      </div>
+    </section>
+
+    <section class="card info-card">
+      <h2>Категории индекса массы тела</h2>
+      <p class="table-subtitle">Интерпретация показателей для взрослых по приведённой шкале ВОЗ.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>ИМТ, кг/м²</th><th>Категория</th></tr></thead>
+          <tbody>
+            <tr><td>16 и менее</td><td>Выраженный дефицит массы</td></tr>
+            <tr><td>Более 16 — менее 18,5</td><td>Недостаточная масса тела</td></tr>
+            <tr><td>18,5 — менее 25</td><td><span class="normal-tag">Норма</span></td></tr>
+            <tr><td>25 — менее 30</td><td>Избыточная масса тела (предожирение)</td></tr>
+            <tr><td>30 — менее 35</td><td>Ожирение первой степени</td></tr>
+            <tr><td>35 — менее 40</td><td>Ожирение второй степени</td></tr>
+            <tr><td>40 и более</td><td>Ожирение третьей степени (морбидное)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>ИМТ является ориентировочным показателем, а не медицинским диагнозом.</p>
+      <p>Для детей и подростков применяются отдельные нормы. При вопросах о здоровье обратитесь к медицинскому специалисту.</p>
+    </footer>
+  </main>
+</body>
+</html>
